@@ -3,6 +3,15 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+from flask import Flask, render_template, request, make_response
+
+app = Flask(__name__)
+
+@app.after_request
+def add_header(response):
+    response.headers['X-Frame-Options'] = ''  # ou remova se quiser abrir geral
+    return response
+
 # Função para calcular INSS
 def calcular_inss(salario_bruto):
     faixas = [
