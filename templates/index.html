@@ -8,11 +8,9 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f9f9f9;
-            padding: 20px;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
         }
         .container {
             width: 100%;
@@ -62,6 +60,10 @@
             margin: 5px 0;
             color: #2c3e50;
         }
+        .resultado .desconto {
+            color: #c0392b;
+            font-weight: bold;
+        }
         .resultado .liquido {
             font-size: 20px;
             font-weight: bold;
@@ -88,8 +90,8 @@
                 <p>{{ resultado }}</p>
             {% else %}
                 <p><strong>Salário Bruto:</strong> R$ {{ resultado.bruto }}</p>
-                <p><strong>INSS:</strong> R$ {{ resultado.inss }}</p>
-                <p><strong>IRRF:</strong> R$ {{ resultado.irrf }}</p>
+                <p class="desconto"><strong>INSS:</strong> R$ {{ resultado.inss }}</p>
+                <p class="desconto"><strong>IRRF:</strong> R$ {{ resultado.irrf }}</p>
                 <p class="liquido"><strong>Salário Líquido:</strong> R$ {{ resultado.liquido }}</p>
             {% endif %}
         </div>
