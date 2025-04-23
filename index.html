@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Salário Líquido 2024</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 12px;
+            background-color: #2c3e50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #34495e;
+        }
+        .resultado {
+            margin-top: 20px;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .resultado p {
+            margin: 5px 0;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Salário Líquido</h1>
+    <form method="POST">
+        <label for="salario">Salário Bruto (R$):</label>
+        <input type="number" name="salario" step="0.01" required>
+
+        <label for="dependentes">Número de Dependentes:</label>
+        <input type="number" name="dependentes" min="0" required>
+
+        <button type="submit">Calcular</button>
+    </form>
+
+    {% if resultado %}
+    <div class="resultado">
+        {% if resultado == 'Erro: valores inválidos.' %}
+            <p>{{ resultado }}</p>
+        {% else %}
+            <p><strong>Salário Bruto:</strong> R$ {{ resultado.bruto }}</p>
+            <p><strong>INSS:</strong> R$ {{ resultado.inss }}</p>
+            <p><strong>IRRF:</strong> R$ {{ resultado.irrf }}</p>
+            <p><strong>Salário Líquido:</strong> R$ {{ resultado.liquido }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+</body>
+</html>
