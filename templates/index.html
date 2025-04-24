@@ -48,8 +48,8 @@
   margin-top: 24px;
   width: 100%;
   padding: 14px;
-  background-color: #0f172a; /* azul escuro */
-  color: #10b981; /* verde claro */
+  background-color: #0f172a;
+  color: white;
   font-size: 16px;
   border: none;
   border-radius: 8px;
@@ -61,6 +61,7 @@
     button:hover {
   background-color: #1e293b;
   transform: translateY(-2px);
+  color: #10b981;
 }
     .resultado {
       margin-top: 32px;
@@ -86,15 +87,15 @@
 </head>
 <body>
   <div class="container">
-    <h1>🧮 Calculadora de Salário Líquido 2025</h1>
+    <h1>Calculadora de Salário Líquido 2025</h1>
     <form method="POST">
-      <label for="salario">💰 Salário Bruto (R$):</label>
+      <label for="salario">Salário Bruto (R$):</label>
       <input type="number" name="salario" step="0.01" required />
 
-      <label for="dependentes">👨‍👩‍👧‍👦 Número de Dependentes:</label>
+      <label for="dependentes">Número de Dependentes:</label>
       <input type="number" name="dependentes" min="0" required />
 
-      <label for="outros">💸 Outros Descontos (R$):</label>
+      <label for="outros">Outros Descontos (R$):</label>
       <input type="number" name="outros" step="0.01" placeholder="Ex: VT, VR, convênio..." />
 
       <button type="submit">Calcular</button>
@@ -113,6 +114,11 @@
       {% endif %}
     </div>
     {% endif %}
+      <div style="text-align: center; margin-top: 40px;">
+      <a href="https://mestresdacontabilidade.com.br" style="text-decoration: none; font-weight: bold; color: var(--cor-primaria); font-size: 15px;">
+        ← Voltar para o site Mestres da Contabilidade
+      </a>
+    </div>
   </div>
 </body>
 </html>
