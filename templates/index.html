@@ -92,6 +92,7 @@
       margin-top: 12px;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="container">
@@ -121,6 +122,40 @@
       <p class="liquido"><strong>Salário Líquido:</strong> R$ {{ "{:,.2f}".format(resultado.liquido).replace(',', 'X').replace('.', ',').replace('X', '.') }}</p>
       {% endif %}
     </div>
+      <canvas id="graficoSalario" width="400" height="400" style="margin-top: 40px;"></canvas>
+      <script>
+        const ctx = document.getElementById('graficoSalario');
+        const grafico = new Chart(ctx, {
+          type: 'pie',
+          data: {
+            labels: ['INSS', 'IRRF', 'Outros Descontos', 'Salário Líquido'],
+            datasets: [{
+              label: 'Composição do Salário',
+              data: [
+                {{ resultado.inss | default(0) }},
+                {{ resultado.irrf | default(0) }},
+                {{ resultado.outros | default(0) }},
+                {{ resultado.liquido | default(0) }}
+              ],
+              backgroundColor: [
+                '#f87171', // INSS - vermelho claro
+                '#fb923c', // IRRF - laranja
+                '#facc15', // Outros - amarelo
+                '#10b981'  // Líquido - verde
+              ],
+              borderColor: '#ffffff',
+              borderWidth: 2
+            }]
+          },
+          options: {
+            plugins: {
+              legend: {
+                position: 'bottom'
+              }
+            }
+          }
+        });
+      </script>
     {% endif %}
       
   </div>
