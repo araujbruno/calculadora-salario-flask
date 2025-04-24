@@ -11,10 +11,10 @@ def add_header(response):
 # Tabela INSS 2025 (valores oficiais atualizados)
 def calcular_inss(salario_bruto):
     faixas = [
-        (1412.00, 0.075),
-        (2666.68, 0.09),
-        (4000.03, 0.12),
-        (7786.02, 0.14)
+        (1518.00, 0.075),
+        (2793.88, 0.09),
+        (4190.83, 0.12),
+        (8157.41, 0.14)
     ]
     inss = 0.0
     limite_anterior = 0.0
