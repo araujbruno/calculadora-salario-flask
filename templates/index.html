@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Use a Calculadora de Salário Líquido 2025 do Mestres da Contabilidade e descubra quanto você realmente recebe após os descontos de INSS, IRRF e outros.">
-  <meta name="keywords" content="calculadora salário líquido 2025, salário líquido INSS IRRF, calcular salário líquido, desconto INSS, desconto IRRF, folha de pagamento">
+  <meta name="keywords" content="calculadora salário líquido 2025, salário líquido INSS IRRF, calcular salário neto, desconto INSS, desconto IRRF, folha de pagamento">
   <meta name="author" content="Mestres da Contabilidade">
   <link rel="canonical" href="https://mestresdacontabilidade.com.br/calculadora">
   <meta property="og:title" content="Calculadora de Salário Líquido 2025 - Mestres da Contabilidade">
   <meta property="og:description" content="Calcule seu salário líquido com precisão: INSS, IRRF e outros descontos com base nas tabelas atualizadas de 2025.">
   <meta property="og:url" content="https://mestresdacontabilidade.com.br/calculadora">
   <meta property="og:type" content="website">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculadora de Salário Líquido 2025</title>
   <style>
     :root {
-      --cor-primaria: #0f172a;
-      --cor-secundaria: #0f172a;
-      --cor-suave: #f3f4f6;
-      --cor-verde: #10b981;
-      --cor-vermelha: #dc2626;
-    }
+  --cor-primaria: #0f172a; /* azul escuro (Mestres) */
+  --cor-secundaria: #0f172a;
+  --cor-suave: #f3f4f6;
+  --cor-verde: #10b981; /* verde claro (da Contabilidade) */
+  --cor-vermelha: #dc2626;
+}
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -53,24 +53,24 @@
       font-size: 16px;
     }
     button {
-      margin-top: 24px;
-      width: 100%;
-      padding: 14px;
-      background-color: #0f172a;
-      color: white;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
+  margin-top: 24px;
+  width: 100%;
+  padding: 14px;
+  background-color: #0f172a;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
     button:hover {
-      background-color: #1e293b;
-      transform: translateY(-2px);
-      color: #10b981;
-    }
+  background-color: #1e293b;
+  transform: translateY(-2px);
+  color: #10b981;
+}
     .resultado {
       margin-top: 32px;
       padding: 20px;
@@ -112,21 +112,17 @@
     {% if resultado %}
     <div class="resultado">
       {% if resultado == 'Erro: valores inválidos.' %}
-        <p>{{ resultado }}</p>
+      <p>{{ resultado }}</p>
       {% else %}
-        <p><strong>Salário Bruto:</strong> R$ {{ "{:,.2f}".format(resultado.bruto).replace(',', 'X').replace('.', ',').replace('X', '.') }}</p>
-        <p class="desconto"><strong>INSS:</strong> R$ {{ "{:,.2f}".format(resultado.inss).replace(',', 'X').replace('.', ',').replace('X', '.') }}</p>
-        <p class="desconto"><strong>IRRF:</strong> R$ {{ "{:,.2f}".format(resultado.irrf).replace(',', 'X').replace('.', ',').replace('X', '.') }}</p>
-        <p class="desconto"><strong>Outros Descontos:</strong> R$ {{ "{:,.2f}".format(resultado.outros).replace(',', 'X').replace('.', ',').replace('X', '.') }}</p>
-        <p class="liquido"><strong>Salário Líquido:</strong> R$ {{ "{:,.2f}".format(resultado.liquido).replace(',', 'X').replace('.', ',').replace('X', '.') }}</p>
+      <p><strong>Salário Bruto:</strong> R$ {{ "{:,.2f}".format(resultado.bruto).replace(',', 'X').replace('.', ',').replace('X', '.') }}</p>
+      <p class="desconto"><strong>INSS:</strong> R$ {{ "{:,.2f}".format(resultado.inss).replace(',', 'X').replace('.', ',').replace('X', '.') }}</p>
+      <p class="desconto"><strong>IRRF:</strong> R$ {{ "{:,.2f}".format(resultado.irrf).replace(',', 'X').replace('.', ',').replace('X', '.') }}</p>
+      <p class="desconto"><strong>Outros Descontos:</strong> R$ {{ "{:,.2f}".format(resultado.outros).replace(',', 'X').replace('.', ',').replace('X', '.') }}</p>
+      <p class="liquido"><strong>Salário Líquido:</strong> R$ {{ "{:,.2f}".format(resultado.liquido).replace(',', 'X').replace('.', ',').replace('X', '.') }}</p>
       {% endif %}
     </div>
     {% endif %}
-
-    <div style="text-align: center; margin-top: 40px;">
-      <a href="https://mestresdacontabilidade.com.br" style="text-decoration: none; font-weight: bold; color: var(--cor-primaria); font-size: 15px;">
-        ← Voltar para o site Mestres da Contabilidade
-      </a>
-    </div>
+      
   </div>
 </body>
+</html>
