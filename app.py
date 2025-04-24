@@ -3,16 +3,12 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-from flask import Flask, render_template, request, make_response
-
-app = Flask(__name__)
-
 @app.after_request
 def add_header(response):
     response.headers['X-Frame-Options'] = ''  # ou remova se quiser abrir geral
     return response
 
-# Função para calcular INSS
+# Tabela INSS 2025 (valores oficiais atualizados)
 def calcular_inss(salario_bruto):
     faixas = [
         (1412.00, 0.075),
@@ -31,7 +27,7 @@ def calcular_inss(salario_bruto):
             break
     return inss
 
-# Função para calcular IRRF
+# Tabela IRRF 2025 (valores oficiais atualizados)
 def calcular_irrf(salario_bruto, inss, dependentes):
     base_calculo = salario_bruto - inss - (dependentes * 189.59)
     if base_calculo <= 2259.20:
@@ -52,14 +48,16 @@ def index():
         try:
             salario = float(request.form['salario'])
             dependentes = int(request.form['dependentes'])
+            outros = float(request.form['outros']) if request.form['outros'] else 0.0
             inss = calcular_inss(salario)
             irrf = calcular_irrf(salario, inss, dependentes)
-            liquido = salario - inss - irrf
+            liquido = salario - inss - irrf - outros
             resultado = {
                 'bruto': salario,
                 'dependentes': dependentes,
                 'inss': round(inss, 2),
                 'irrf': round(irrf, 2),
+                'outros': round(outros, 2),
                 'liquido': round(liquido, 2)
             }
         except ValueError:
