@@ -6,16 +6,16 @@
   <title>Calculadora de Salário Líquido 2025</title>
   <style>
     :root {
-      --cor-primaria: #1e3a8a;
-      --cor-secundaria: #3b82f6;
-      --cor-suave: #f3f4f6;
-      --cor-verde: #16a34a;
-      --cor-vermelha: #dc2626;
-    }
+  --cor-primaria: #0f172a; /* azul escuro (Mestres) */
+  --cor-secundaria: #0f172a;
+  --cor-suave: #f3f4f6;
+  --cor-verde: #10b981; /* verde claro (da Contabilidade) */
+  --cor-vermelha: #dc2626;
+}
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(180deg, #f9fafb 0%, #e5e7eb 100%);
+      background: #ffffff;
       color: #1f2937;
     }
     .container {
@@ -45,21 +45,23 @@
       font-size: 16px;
     }
     button {
-      margin-top: 24px;
-      width: 100%;
-      padding: 14px;
-      background-color: var(--cor-secundaria);
-      color: white;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s ease-in-out;
-    }
+  margin-top: 24px;
+  width: 100%;
+  padding: 14px;
+  background-color: #0f172a; /* azul escuro */
+  color: #10b981; /* verde claro */
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
     button:hover {
-      background-color: var(--cor-primaria);
-    }
+  background-color: #1e293b;
+  transform: translateY(-2px);
+}
     .resultado {
       margin-top: 32px;
       padding: 20px;
@@ -84,15 +86,15 @@
 </head>
 <body>
   <div class="container">
-    <h1>Calculadora de Salário Líquido 2025</h1>
+    <h1>🧮 Calculadora de Salário Líquido 2025</h1>
     <form method="POST">
-      <label for="salario">Salário Bruto (R$):</label>
+      <label for="salario">💰 Salário Bruto (R$):</label>
       <input type="number" name="salario" step="0.01" required />
 
-      <label for="dependentes">Número de Dependentes:</label>
+      <label for="dependentes">👨‍👩‍👧‍👦 Número de Dependentes:</label>
       <input type="number" name="dependentes" min="0" required />
 
-      <label for="outros">Outros Descontos (R$):</label>
+      <label for="outros">💸 Outros Descontos (R$):</label>
       <input type="number" name="outros" step="0.01" placeholder="Ex: VT, VR, convênio..." />
 
       <button type="submit">Calcular</button>
