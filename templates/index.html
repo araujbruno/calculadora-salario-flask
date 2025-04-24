@@ -4,7 +4,7 @@
   <meta name="description" content="Use a Calculadora de Salário Líquido 2025 do Mestres da Contabilidade e descubra quanto você realmente recebe após os descontos de INSS, IRRF e outros.">
   <meta name="keywords" content="calculadora salário líquido 2025, salário líquido INSS IRRF, calcular salário neto, desconto INSS, desconto IRRF, folha de pagamento">
   <meta name="author" content="Mestres da Contabilidade">
-  <link rel="canonical" href="https://mestresdacontabilidade.com.br/calculadora">
+  <link rel="canonical" href="https://mestresdacontabilidade.com.br/calculadora-salario">
   <meta property="og:title" content="Calculadora de Salário Líquido 2025 - Mestres da Contabilidade">
   <meta property="og:description" content="Calcule seu salário líquido com precisão: INSS, IRRF e outros descontos com base nas tabelas atualizadas de 2025.">
   <meta property="og:url" content="https://mestresdacontabilidade.com.br/calculadora">
@@ -111,7 +111,9 @@
     </form>
 
     {% if resultado %}
-    <div class="resultado">
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; justify-content: space-between;">
+  <div class="resultado" style="flex: 1 1 280px; min-width: 250px;">
+    
       {% if resultado == 'Erro: valores inválidos.' %}
       <p>{{ resultado }}</p>
       {% else %}
@@ -121,8 +123,12 @@
       <p class="desconto"><strong>Outros Descontos:</strong> R$ {{ "{:,.2f}".format(resultado.outros).replace(',', 'X').replace('.', ',').replace('X', '.') }}</p>
       <p class="liquido"><strong>Salário Líquido:</strong> R$ {{ "{:,.2f}".format(resultado.liquido).replace(',', 'X').replace('.', ',').replace('X', '.') }}</p>
       {% endif %}
-    </div>
-      <canvas id="graficoSalario" width="400" height="400" style="margin-top: 40px;"></canvas>
+    
+  </div>
+  <div style="flex: 1 1 280px; min-width: 250px;">
+    <canvas id="graficoSalario" width="280" height="280"></canvas>
+  </div>
+</div>
       <script>
         const ctx = document.getElementById('graficoSalario');
         const grafico = new Chart(ctx, {
