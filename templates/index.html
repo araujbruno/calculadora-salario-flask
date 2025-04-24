@@ -45,13 +45,13 @@
       display: block;
     }
     input[type="number"] {
-      width: 100%;
-      padding: 12px;
-      margin-top: 6px;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      font-size: 16px;
-    }
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
     button {
   margin-top: 24px;
   width: 100%;
@@ -98,7 +98,7 @@
 <body>
   <div class="container">
     <h1>Calculadora de Salário Líquido 2025</h1>
-    <form method="POST">
+    <form method="POST" style="display: flex; flex-direction: column; gap: 16px;">
       <label for="salario">Salário Bruto (R$):</label>
       <input type="number" name="salario" step="0.01" required />
 
